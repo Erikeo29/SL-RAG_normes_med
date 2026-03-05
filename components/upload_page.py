@@ -6,25 +6,21 @@ import tempfile
 
 import streamlit as st
 
-from config import DOMAINS
+from config import COLLECTION_NAME, DOC_SOURCE_PATH
 from core.ingestion import delete_document, get_db_stats, ingest_directory, ingest_pdf
 from utils.translations import t
 
 
 def render_upload_page():
     """Affiche la page de gestion des documents."""
-    domain = st.session_state.get("domain", "medical")
-    collection_name = DOMAINS[domain]["collection"]
-    doc_path = DOMAINS[domain]["doc_path"]
-
     st.header(t("page_upload"))
-    st.info(t(f"upload_domain_hint_{domain}"))
+    st.info(t("upload_domain_hint"))
 
     # Sync depuis dossier local
-    if os.path.isdir(doc_path):
+    if os.path.isdir(DOC_SOURCE_PATH):
         if st.button(t("upload_sync_button"), type="primary"):
             with st.spinner(t("upload_sync_processing")):
-                results = ingest_directory(doc_path, collection_name=collection_name)
+                results = ingest_directory(DOC_SOURCE_PATH, collection_name=COLLECTION_NAME)
             if results:
                 total = sum(results.values())
                 st.success(
@@ -64,7 +60,7 @@ def render_upload_page():
                     tmp_path = tmp.name
 
                 try:
-                    n_chunks = ingest_pdf(tmp_path, collection_name=collection_name)
+                    n_chunks = ingest_pdf(tmp_path, collection_name=COLLECTION_NAME)
                     total_chunks += n_chunks
                 finally:
                     os.unlink(tmp_path)
@@ -78,7 +74,7 @@ def render_upload_page():
     st.markdown("---")
 
     # Documents indexes
-    stats = get_db_stats(collection_name=collection_name)
+    stats = get_db_stats(collection_name=COLLECTION_NAME)
     if stats["sources"]:
         st.subheader(t("db_indexed_docs"))
         for source in stats["sources"]:
@@ -87,7 +83,7 @@ def render_upload_page():
             if col2.button(
                 t("upload_delete"), key=f"del_{source}", type="secondary"
             ):
-                n = delete_document(source, collection_name=collection_name)
+                n = delete_document(source, collection_name=COLLECTION_NAME)
                 st.toast(f"{source} {t('upload_deleted')} ({n} chunks)")
                 st.rerun()
     else:

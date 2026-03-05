@@ -5,7 +5,7 @@ import os
 
 from groq import Groq
 
-from config import LLM_MODEL, SYSTEM_PROMPTS
+from config import LLM_MODEL, SYSTEM_PROMPT
 from core.retrieval import format_context, retrieve_relevant_chunks
 
 
@@ -26,8 +26,7 @@ def get_groq_client() -> Groq | None:
 def stream_rag_response(
     user_message: str,
     chat_history: list[dict],
-    domain: str = "medical",
-    collection_name: str = "normes",
+    collection_name: str = "normes_medical",
 ):
     """Genere une reponse RAG en streaming.
 
@@ -51,10 +50,8 @@ def stream_rag_response(
         yield "Cle API Groq non configuree.", chunks
         return
 
-    system_prompt = SYSTEM_PROMPTS.get(domain, SYSTEM_PROMPTS["medical"])
-    messages = [{"role": "system", "content": system_prompt}]
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
 
-    # Ajouter l'historique recent (max 10 messages)
     for msg in chat_history[-10:]:
         messages.append({"role": msg["role"], "content": msg["content"]})
 

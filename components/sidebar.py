@@ -1,7 +1,7 @@
-"""Composant sidebar : langue, navigation groupée par domaine, stats, annexes."""
+"""Composant sidebar : langue, navigation, stats."""
 import streamlit as st
 
-from config import DOMAINS
+from config import COLLECTION_NAME
 from core.ingestion import get_db_stats
 from utils.translations import t
 
@@ -13,8 +13,8 @@ def render_sidebar():
 
         st.markdown("---")
 
-        # Langue (tout en haut)
-        lang_options = {"Français": "fr", "English": "en"}
+        # Langue
+        lang_options = {"Francais": "fr", "English": "en"}
         current_lang = st.session_state.get("lang", "fr")
         default_idx = 0 if current_lang == "fr" else 1
         selected = st.radio(
@@ -31,11 +31,9 @@ def render_sidebar():
 
         st.markdown("---")
 
-        # Navigation par boutons groupés
+        # Navigation
         current = st.session_state.get("current_page", "about")
-        domain = st.session_state.get("domain", "medical")
 
-        # À propos
         if st.button(
             t("page_about"),
             type="primary" if current == "about" else "secondary",
@@ -45,90 +43,39 @@ def render_sidebar():
             st.session_state.current_page = "about"
             st.rerun()
 
-        st.markdown("---")
-
-        # --- Médical ---
-        st.caption(t("section_medical"))
-
         if st.button(
-            t("page_normes_medical"),
+            t("page_normes"),
             type="primary" if current == "normes_medical" else "secondary",
             use_container_width=True,
-            key="btn_normes_medical",
+            key="btn_normes",
         ):
             st.session_state.current_page = "normes_medical"
-            st.session_state.domain = "medical"
             st.rerun()
 
         if st.button(
-            t("page_chat_medical"),
-            type=(
-                "primary"
-                if current == "chat" and domain == "medical"
-                else "secondary"
-            ),
+            t("page_chat"),
+            type="primary" if current == "chat" else "secondary",
             use_container_width=True,
-            key="btn_chat_medical",
+            key="btn_chat",
         ):
             st.session_state.current_page = "chat"
-            st.session_state.domain = "medical"
             st.rerun()
 
         st.markdown("---")
 
-        # --- Statistique ---
-        st.caption(t("section_statistique"))
-
-        if st.button(
-            t("page_normes_statistique"),
-            type="primary" if current == "normes_statistique" else "secondary",
-            use_container_width=True,
-            key="btn_normes_statistique",
-        ):
-            st.session_state.current_page = "normes_statistique"
-            st.session_state.domain = "statistique"
-            st.rerun()
-
-        if st.button(
-            t("page_chat_statistique"),
-            type=(
-                "primary"
-                if current == "chat" and domain == "statistique"
-                else "secondary"
-            ),
-            use_container_width=True,
-            key="btn_chat_statistique",
-        ):
-            st.session_state.current_page = "chat"
-            st.session_state.domain = "statistique"
-            st.rerun()
-
-        st.markdown("---")
-
-        # Stats base (compact, les deux domaines)
-        all_stats = {}
-        for dom, cfg in DOMAINS.items():
-            all_stats[dom] = get_db_stats(collection_name=cfg["collection"])
-
+        # Stats base
+        stats = get_db_stats(collection_name=COLLECTION_NAME)
         st.caption(t("db_stats_title"))
-        for dom in DOMAINS:
-            label = t(f"section_{dom}")
-            s = all_stats[dom]
-            st.caption(
-                f"**{label}** — {s['documents']} docs · {s['chunks']} chunks"
-            )
+        st.caption(f"{stats['documents']} docs · {stats['chunks']} chunks")
 
         with st.expander(t("db_indexed_docs")):
-            for dom in DOMAINS:
-                label = t(f"section_{dom}")
-                st.caption(f"**{label}**")
-                if all_stats[dom]["sources"]:
-                    for src in all_stats[dom]["sources"]:
-                        st.caption(f"- {src}")
+            if stats["sources"]:
+                for src in stats["sources"]:
+                    st.caption(f"- {src}")
 
         st.markdown("---")
 
-        # Annexes (pages secondaires)
+        # Annexes
         with st.expander(t("annexes_title")):
             if st.button(
                 t("page_upload"), key="btn_upload", use_container_width=True

@@ -1,89 +1,71 @@
-"""Page à propos : description du projet et architecture."""
+"""Page a propos : description du projet et architecture."""
 import streamlit as st
 
-from config import DOMAINS
+from config import COLLECTION_NAME
 from core.ingestion import get_db_stats
 from utils.translations import t
 
 
 def render_about_page():
-    """Affiche la page à propos."""
+    """Affiche la page a propos."""
     lang = st.session_state.get("lang", "fr")
-
-    # Stats par domaine
-    stats_by_domain = {}
-    for dom, cfg in DOMAINS.items():
-        stats_by_domain[dom] = get_db_stats(collection_name=cfg["collection"])
+    stats = get_db_stats(collection_name=COLLECTION_NAME)
 
     if lang == "fr":
-        _render_fr(stats_by_domain)
+        _render_fr(stats)
     else:
-        _render_en(stats_by_domain)
+        _render_en(stats)
 
 
-def _render_fr(stats_by_domain: dict[str, dict]):
-    st.header("À propos")
+def _render_fr(stats: dict):
+    st.header("A propos")
 
     st.subheader("Objectif")
     st.markdown(
         "Cette application est un **assistant intelligent** pour l'analyse de documents "
-        "réglementaires. Elle utilise la technologie **RAG** (Retrieval-Augmented Generation) "
-        "pour permettre de poser des questions en langage naturel sur les documents chargés."
+        "reglementaires lies aux dispositifs medicaux. Elle utilise la technologie **RAG** "
+        "(Retrieval-Augmented Generation) pour permettre de poser des questions "
+        "en langage naturel sur les documents charges."
     )
 
     st.markdown("---")
 
-    st.subheader(t("about_domains_title"))
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown(f"**{t('domain_medical')}**")
-        st.markdown(t("about_domain_medical_desc"))
-        stats = stats_by_domain["medical"]
-        st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
-    with col2:
-        st.markdown(f"**{t('domain_statistique')}**")
-        st.markdown(t("about_domain_statistique_desc"))
-        stats = stats_by_domain["statistique"]
-        st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
+    st.subheader("Domaine couvert")
+    st.markdown(t("about_domain_medical_desc"))
+    st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
 
     st.markdown("---")
 
-    st.subheader("Fonctionnalités")
+    st.subheader("Fonctionnalites")
     st.markdown(
-        "- **Sélecteur de domaine** : basculez entre normes médicales et normes statistiques\n"
-        "- **Chat RAG** : posez des questions en langage naturel, obtenez des réponses "
-        "avec références aux documents sources\n"
-        "- **Gestion des documents** : upload, indexation et suppression de PDFs par domaine\n"
-        "- **Matrice de compliance** : évaluez la conformité par référentiel "
-        "(FDA, ISO statistiques...) avec recherche RAG intégrée\n"
-        "- **Bilingue** : français et anglais"
+        "- **Chat RAG** : posez des questions en langage naturel, obtenez des reponses "
+        "avec references aux documents sources\n"
+        "- **Synthese des normes** : vue d'ensemble structuree des normes medicales\n"
+        "- **Gestion des documents** : upload, indexation et suppression de PDFs\n"
+        "- **Matrice de compliance** : evaluez la conformite par referentiel "
+        "(FDA, ISO...) avec recherche RAG integree\n"
+        "- **Bilingue** : francais et anglais"
     )
 
     st.markdown("---")
 
     st.subheader("Cas d'usage")
     st.markdown(
-        "**Normes médicales :**\n"
-        "- Recherche rapide d'exigences dans les documents réglementaires chargés\n"
-        "- Préparation d'audits : identifier rapidement les clauses pertinentes\n"
-        "- Gap analysis : comparer les exigences avec les procédures internes\n"
-        "- Formation : comprendre les exigences réglementaires de manière interactive\n\n"
-        "**Normes statistiques :**\n"
-        "- Retrouver un plan d'échantillonnage (NQA, taille de lot) dans l'ISO 2859\n"
-        "- Identifier les formules de cartes de contrôle (X-barre, R, p, c) de l'ISO 7870\n"
-        "- Consulter les indices de capabilité (Cp, Cpk, Pp, Ppk) de l'ISO 22514\n"
-        "- Comprendre les méthodes d'incertitude de mesure (GUM, NIST)"
+        "- Recherche rapide d'exigences dans les documents reglementaires charges\n"
+        "- Preparation d'audits : identifier rapidement les clauses pertinentes\n"
+        "- Gap analysis : comparer les exigences avec les procedures internes\n"
+        "- Formation : comprendre les exigences reglementaires de maniere interactive"
     )
 
     st.markdown("---")
 
     st.subheader("Architecture")
     st.code(
-        "PDF Upload -> Découpage en chunks -> Embeddings -> ChromaDB\n"
+        "PDF Upload -> Decoupage en chunks -> Embeddings -> ChromaDB\n"
         "                                                      |\n"
-        "Question -> Embedding -> Recherche sémantique -> Chunks pertinents\n"
+        "Question -> Embedding -> Recherche semantique -> Chunks pertinents\n"
         "                                                      |\n"
-        "               Chunks + Question -> LLM (Llama 3.3) -> Réponse sourcée",
+        "               Chunks + Question -> LLM (Llama 3.3) -> Reponse sourcee",
         language=None,
     )
 
@@ -103,59 +85,47 @@ def _render_fr(stats_by_domain: dict[str, dict]):
 
     st.markdown("---")
 
-    st.subheader("Documents actuellement indexés")
-    for dom, cfg in DOMAINS.items():
-        stats = stats_by_domain[dom]
-        label = t(f"domain_{dom}")
-        st.markdown(f"**{label}**")
-        if stats["sources"]:
-            for src in stats["sources"]:
-                st.markdown(f"- {src}")
-            st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
-        else:
-            st.caption("Aucun document indexé.")
+    st.subheader("Documents actuellement indexes")
+    if stats["sources"]:
+        for src in stats["sources"]:
+            st.markdown(f"- {src}")
+        st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
+    else:
+        st.caption("Aucun document indexe.")
 
     st.markdown("---")
 
     st.caption(
-        "Note : les documents chargés dans ce RAG sont des documents publics et gratuits."
+        "Note : les documents charges dans ce RAG sont des documents publics et gratuits."
     )
 
 
-def _render_en(stats_by_domain: dict[str, dict]):
+def _render_en(stats: dict):
     st.header("About")
 
     st.subheader("Purpose")
     st.markdown(
-        "This application is an **intelligent assistant** for analyzing regulatory documents. "
-        "It uses **RAG** (Retrieval-Augmented Generation) technology to allow natural language "
+        "This application is an **intelligent assistant** for analyzing regulatory "
+        "documents related to medical devices. It uses **RAG** "
+        "(Retrieval-Augmented Generation) technology to allow natural language "
         "questions on uploaded documents."
     )
 
     st.markdown("---")
 
-    st.subheader(t("about_domains_title"))
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown(f"**{t('domain_medical')}**")
-        st.markdown(t("about_domain_medical_desc"))
-        stats = stats_by_domain["medical"]
-        st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
-    with col2:
-        st.markdown(f"**{t('domain_statistique')}**")
-        st.markdown(t("about_domain_statistique_desc"))
-        stats = stats_by_domain["statistique"]
-        st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
+    st.subheader("Domain covered")
+    st.markdown(t("about_domain_medical_desc"))
+    st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
 
     st.markdown("---")
 
     st.subheader("Features")
     st.markdown(
-        "- **Domain selector**: switch between medical standards and statistical standards\n"
         "- **RAG Chat**: ask natural language questions, get answers with source references\n"
-        "- **Document management**: upload, index and delete PDFs per domain\n"
+        "- **Standards overview**: structured summary of medical device standards\n"
+        "- **Document management**: upload, index and delete PDFs\n"
         "- **Compliance matrix**: assess conformity by standard "
-        "(FDA, ISO statistical...) with integrated RAG search\n"
+        "(FDA, ISO...) with integrated RAG search\n"
         "- **Bilingual**: French and English"
     )
 
@@ -163,16 +133,10 @@ def _render_en(stats_by_domain: dict[str, dict]):
 
     st.subheader("Use cases")
     st.markdown(
-        "**Medical standards:**\n"
         "- Quick lookup of requirements in uploaded regulatory documents\n"
         "- Audit preparation: rapidly identify relevant clauses\n"
         "- Gap analysis: compare requirements with internal procedures\n"
-        "- Training: understand regulatory requirements interactively\n\n"
-        "**Statistical standards:**\n"
-        "- Find a sampling plan (AQL, lot size) in ISO 2859\n"
-        "- Identify control chart formulas (X-bar, R, p, c) from ISO 7870\n"
-        "- Look up capability indices (Cp, Cpk, Pp, Ppk) from ISO 22514\n"
-        "- Understand measurement uncertainty methods (GUM, NIST)"
+        "- Training: understand regulatory requirements interactively"
     )
 
     st.markdown("---")
@@ -204,16 +168,12 @@ def _render_en(stats_by_domain: dict[str, dict]):
     st.markdown("---")
 
     st.subheader("Currently indexed documents")
-    for dom, cfg in DOMAINS.items():
-        stats = stats_by_domain[dom]
-        label = t(f"domain_{dom}")
-        st.markdown(f"**{label}**")
-        if stats["sources"]:
-            for src in stats["sources"]:
-                st.markdown(f"- {src}")
-            st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
-        else:
-            st.caption("No documents indexed.")
+    if stats["sources"]:
+        for src in stats["sources"]:
+            st.markdown(f"- {src}")
+        st.caption(f"{stats['documents']} documents, {stats['chunks']} chunks")
+    else:
+        st.caption("No documents indexed.")
 
     st.markdown("---")
 
