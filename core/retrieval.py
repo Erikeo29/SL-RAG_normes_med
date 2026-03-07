@@ -54,7 +54,7 @@ def retrieve_relevant_chunks(
 def format_context(chunks: list[dict]) -> str:
     """Formate les chunks en contexte pour le LLM."""
     if not chunks:
-        return "Aucun document pertinent trouve dans la base."
+        return "Aucun document pertinent trouvé dans la base."
 
     context_parts = []
     for i, chunk in enumerate(chunks, 1):

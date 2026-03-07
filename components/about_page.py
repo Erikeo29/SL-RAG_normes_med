@@ -18,22 +18,22 @@ def render_about_page():
 
 
 def _render_fr(stats: dict):
-    st.header("A propos")
+    st.header("À propos")
 
     st.subheader("Objectif")
     st.markdown(
         "Cette application est un **assistant intelligent** pour l'analyse de documents "
-        "reglementaires lies aux dispositifs medicaux. Elle utilise la technologie **RAG** "
+        "réglementaires liés aux dispositifs médicaux. Elle utilise la technologie **RAG** "
         "(Retrieval-Augmented Generation) pour permettre de poser des questions "
-        "en langage naturel sur les documents charges."
+        "en langage naturel sur les documents chargés."
     )
 
     st.warning(
         "**Prototype** — Cette application est un outil exploratoire. Les normes et "
-        "reglementations indexees sont des documents publics dont l'actualite et "
-        "l'exactitude doivent etre verifiees avant toute utilisation a des fins de "
-        "conformite. L'assistant IA est un guide : il peut commettre des erreurs ou "
-        "des omissions. Pour toute decision reglementaire, referez-vous systematiquement "
+        "réglementations indexées sont des documents publics dont l'actualité et "
+        "l'exactitude doivent être vérifiées avant toute utilisation à des fins de "
+        "conformité. L'assistant IA est un guide : il peut commettre des erreurs ou "
+        "des omissions. Pour toute décision réglementaire, référez-vous systématiquement "
         "aux textes officiels dans leur version en vigueur."
     )
 
@@ -45,33 +45,33 @@ def _render_fr(stats: dict):
 
     st.markdown("---")
 
-    st.subheader("Fonctionnalites")
+    st.subheader("Fonctionnalités")
     st.markdown(
-        "- **Chat RAG** : posez des questions en langage naturel, obtenez des reponses "
-        "avec references aux documents sources\n"
-        "- **Synthese des normes** : vue d'ensemble structuree des normes medicales\n"
-        "- **Bilingue** : francais et anglais"
+        "- **Chat RAG** : posez des questions en langage naturel, obtenez des réponses "
+        "avec références aux documents sources\n"
+        "- **Synthèse des normes** : vue d'ensemble structurée des normes médicales\n"
+        "- **Bilingue** : français et anglais"
     )
 
     st.markdown("---")
 
     st.subheader("Cas d'usage")
     st.markdown(
-        "- Recherche rapide d'exigences dans les documents reglementaires charges\n"
-        "- Preparation d'audits : identifier rapidement les clauses pertinentes\n"
-        "- Gap analysis : comparer les exigences avec les procedures internes\n"
-        "- Formation : comprendre les exigences reglementaires de maniere interactive"
+        "- Recherche rapide d'exigences dans les documents réglementaires chargés\n"
+        "- Préparation d'audits : identifier rapidement les clauses pertinentes\n"
+        "- Gap analysis : comparer les exigences avec les procédures internes\n"
+        "- Formation : comprendre les exigences réglementaires de manière interactive"
     )
 
     st.markdown("---")
 
     st.subheader("Architecture")
     st.code(
-        "PDF Upload -> Decoupage en chunks -> Embeddings -> ChromaDB\n"
+        "PDF Upload -> Découpage en chunks -> Embeddings -> ChromaDB\n"
         "                                                      |\n"
-        "Question -> Embedding -> Recherche semantique -> Chunks pertinents\n"
+        "Question -> Embedding -> Recherche sémantique -> Chunks pertinents\n"
         "                                                      |\n"
-        "               Chunks + Question -> LLM (Llama 3.3) -> Reponse sourcee",
+        "               Chunks + Question -> LLM (Llama 3.3) -> Réponse sourcée",
         language=None,
     )
 
@@ -92,7 +92,7 @@ def _render_fr(stats: dict):
     st.markdown("---")
 
     st.caption(
-        "Les documents charges dans ce RAG sont des documents publics et gratuits."
+        "Les documents chargés dans ce RAG sont des documents publics et gratuits."
     )
 
 

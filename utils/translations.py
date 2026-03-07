@@ -4,11 +4,11 @@ import streamlit as st
 TRANSLATIONS: dict[str, dict[str, str]] = {
     # --- App ---
     "app_title": {
-        "fr": "Normes medicales",
+        "fr": "Normes médicales",
         "en": "Medical Standards",
     },
     "app_subtitle": {
-        "fr": "Assistant intelligent pour l'analyse de normes medicales",
+        "fr": "Assistant intelligent pour l'analyse de normes médicales",
         "en": "Intelligent assistant for medical standards analysis",
     },
     # --- Sidebar ---
@@ -29,11 +29,11 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Compliance matrix",
     },
     "page_about": {
-        "fr": "A propos",
+        "fr": "À propos",
         "en": "About",
     },
     "page_normes": {
-        "fr": "Normes medicales",
+        "fr": "Normes médicales",
         "en": "Medical standards",
     },
     "annexes_title": {
@@ -53,7 +53,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Chunks",
     },
     "db_indexed_docs": {
-        "fr": "Documents indexes",
+        "fr": "Documents indexés",
         "en": "Indexed documents",
     },
     "lang_label": {
@@ -63,8 +63,8 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     "version_info": {
         "fr": (
             "**Version 1.0.0** — Janv 2026\n\n"
-            "**Nouveautes :**\n"
-            "- Base vectorielle pre-indexee\n"
+            "**Nouveautés :**\n"
+            "- Base vectorielle pré-indexée\n"
             "- Synchronisation depuis dossier"
         ),
         "en": (
@@ -75,7 +75,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         ),
     },
     "upload_locked_hint": {
-        "fr": "Reserve a l'administrateur",
+        "fr": "Réservé à l'administrateur",
         "en": "Administrator only",
     },
     # --- Upload page ---
@@ -88,7 +88,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Drop your PDF files here (FDA, ISO, IEC...)",
     },
     "upload_domain_hint": {
-        "fr": "Les documents seront indexes dans le domaine **normes medicales**.",
+        "fr": "Les documents seront indexés dans le domaine **normes médicales**.",
         "en": "Documents will be indexed in the **medical standards** domain.",
     },
     "upload_sync_button": {
@@ -100,11 +100,11 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Syncing...",
     },
     "upload_sync_done": {
-        "fr": "fichier(s) indexe(s) depuis le dossier",
+        "fr": "fichier(s) indexé(s) depuis le dossier",
         "en": "file(s) indexed from directory",
     },
     "upload_sync_uptodate": {
-        "fr": "Tous les documents du dossier sont deja indexes.",
+        "fr": "Tous les documents du dossier sont déjà indexés.",
         "en": "All documents from the directory are already indexed.",
     },
     "upload_sync_no_dir": {
@@ -116,7 +116,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Index documents",
     },
     "upload_success": {
-        "fr": "documents indexes avec succes",
+        "fr": "documents indexés avec succès",
         "en": "documents indexed successfully",
     },
     "upload_processing": {
@@ -124,7 +124,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Indexing in progress...",
     },
     "upload_done": {
-        "fr": "Termine !",
+        "fr": "Terminé !",
         "en": "Done!",
     },
     "upload_delete": {
@@ -132,20 +132,20 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Delete",
     },
     "upload_deleted": {
-        "fr": "supprime",
+        "fr": "supprimé",
         "en": "deleted",
     },
     # --- Chat page ---
     "chat_placeholder": {
-        "fr": "Posez une question sur les normes medicales...",
+        "fr": "Posez une question sur les normes médicales...",
         "en": "Ask a question about medical standards...",
     },
     "chat_welcome": {
         "fr": (
-            "Posez une question sur les documents medicaux charges. Exemples :\n"
+            "Posez une question sur les documents médicaux chargés. Exemples :\n"
             "- Quelles sont les exigences de design controls selon la FDA ?\n"
-            "- Que dit la FDA sur la validation des procedes ?\n"
-            "- Quelles sont les exigences de cybersecurite pour les dispositifs medicaux ?"
+            "- Que dit la FDA sur la validation des procédés ?\n"
+            "- Quelles sont les exigences de cybersécurité pour les dispositifs médicaux ?"
         ),
         "en": (
             "Ask a question about the uploaded medical documents. Examples:\n"
@@ -159,12 +159,22 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Clear conversation",
     },
     "chat_error": {
-        "fr": "Erreur lors de la generation",
+        "fr": "Erreur lors de la génération",
         "en": "Error during generation",
     },
     "chat_api_missing": {
-        "fr": "Cle API Groq non configuree. Ajoutez GROQ_API_KEY dans les secrets.",
+        "fr": "Clé API Groq non configurée. Ajoutez GROQ_API_KEY dans les secrets.",
         "en": "Groq API key not configured. Add GROQ_API_KEY in secrets.",
+    },
+    "ai_disclaimer": {
+        "fr": (
+            "⚠️ Réponse générée par IA — peut contenir des erreurs ou omissions. "
+            "Vérifiez toujours les informations auprès des textes normatifs officiels."
+        ),
+        "en": (
+            "⚠️ AI-generated response — may contain errors or omissions. "
+            "Always verify information against the official normative texts."
+        ),
     },
     "sources_title": {
         "fr": "Sources",
@@ -179,7 +189,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "page",
     },
     "no_documents": {
-        "fr": "Aucun document indexe. Chargez des PDFs via Annexes > Gestion des documents.",
+        "fr": "Aucun document indexé. Chargez des PDFs via Annexes > Gestion des documents.",
         "en": "No documents indexed. Upload PDFs via Annexes > Document management.",
     },
     # --- Matrix page ---
@@ -188,11 +198,11 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Compliance matrix",
     },
     "matrix_help": {
-        "fr": "Croisez les exigences d'un referentiel avec vos procedures internes.",
+        "fr": "Croisez les exigences d'un référentiel avec vos procédures internes.",
         "en": "Cross-reference standard requirements with your internal procedures.",
     },
     "matrix_standard": {
-        "fr": "Referentiel",
+        "fr": "Référentiel",
         "en": "Standard",
     },
     "matrix_requirements_for": {
@@ -208,7 +218,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Status",
     },
     "matrix_gap": {
-        "fr": "Ecart identifie",
+        "fr": "Écart identifié",
         "en": "Gap identified",
     },
     "matrix_corrective_action": {
@@ -220,7 +230,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Add rows with the '+' button at the bottom of the table.",
     },
     "matrix_summary": {
-        "fr": "Synthese",
+        "fr": "Synthèse",
         "en": "Summary",
     },
     "matrix_compliant": {
@@ -236,11 +246,11 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Non-compliant",
     },
     "matrix_to_evaluate": {
-        "fr": "A evaluer",
+        "fr": "À évaluer",
         "en": "To evaluate",
     },
     "matrix_search_title": {
-        "fr": "Recherche dans les documents indexes",
+        "fr": "Recherche dans les documents indexés",
         "en": "Search in indexed documents",
     },
     "matrix_search_placeholder": {
@@ -248,7 +258,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "e.g.: design controls, process validation, CAPA...",
     },
     "matrix_search_label": {
-        "fr": "Rechercher dans les documents charges",
+        "fr": "Rechercher dans les documents chargés",
         "en": "Search in uploaded documents",
     },
     "matrix_searching": {
@@ -256,18 +266,18 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Searching...",
     },
     "matrix_no_results": {
-        "fr": "Aucun resultat. Verifiez que des documents sont indexes.",
+        "fr": "Aucun résultat. Vérifiez que des documents sont indexés.",
         "en": "No results. Check that documents are indexed.",
     },
     "matrix_custom_empty": {
-        "fr": "Personnalise (vide)",
+        "fr": "Personnalisé (vide)",
         "en": "Custom (empty)",
     },
     # --- About page ---
     "about_domain_medical_desc": {
         "fr": (
-            "Normes et reglementations pour les dispositifs medicaux : "
-            "FDA 21 CFR 820, ISO 13485, IEC 62304, EU MDR, cybersecurite..."
+            "Normes et réglementations pour les dispositifs médicaux : "
+            "FDA 21 CFR 820, ISO 13485, IEC 62304, EU MDR, cybersécurité..."
         ),
         "en": (
             "Standards and regulations for medical devices: "

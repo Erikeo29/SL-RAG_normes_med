@@ -17,7 +17,7 @@ from utils.translations import t
 
 # --- Page config ---
 st.set_page_config(
-    page_title="RAG Normes Medicales",
+    page_title="RAG Normes Médicales",
     page_icon="🏥",
     layout="wide",
     initial_sidebar_state="expanded",
