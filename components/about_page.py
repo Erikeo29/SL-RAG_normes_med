@@ -29,7 +29,7 @@ def _render_fr(stats: dict):
     )
 
     st.warning(
-        "**Prototype** — Cette application est un outil exploratoire. Les normes et "
+        "**Prototype** - Cette application est un outil exploratoire. Les normes et "
         "réglementations indexées sont des documents publics dont l'actualité et "
         "l'exactitude doivent être vérifiées avant toute utilisation à des fins de "
         "conformité. L'assistant IA est un guide : il peut commettre des erreurs ou "
@@ -108,7 +108,7 @@ def _render_en(stats: dict):
     )
 
     st.warning(
-        "**Prototype** — This application is an exploratory tool. The indexed standards "
+        "**Prototype** - This application is an exploratory tool. The indexed standards "
         "and regulations are public documents whose currency and accuracy must be "
         "verified before any compliance use. The AI assistant is a guide: it may "
         "produce errors or omissions. For any regulatory decision, always refer to "

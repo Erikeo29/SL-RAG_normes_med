@@ -1,4 +1,4 @@
-# Synthèse du paysage normatif — dispositifs médicaux
+# Synthèse du paysage normatif - dispositifs médicaux
 
 Ce document fournit une vue d'ensemble du cadre réglementaire applicable aux
 dispositifs médicaux. Il couvre les principales juridictions (États-Unis, Union
@@ -11,22 +11,22 @@ documents publics (FDA, EU MDR/IVDR, IMDRF, MDCG, VIM) y sont indexés.
 
 ## Sommaire
 
-1. [Paysage réglementaire — tableau comparatif](#1-paysage-réglementaire--tableau-comparatif)
-2. [FDA — cadre réglementaire américain](#2-fda--cadre-réglementaire-américain)
+1. [Paysage réglementaire - tableau comparatif](#1-paysage-réglementaire--tableau-comparatif)
+2. [FDA - cadre réglementaire américain](#2-fda--cadre-réglementaire-américain)
 3. [EU MDR 2017/745 et IVDR 2017/746](#3-eu-mdr-2017745-et-ivdr-2017746)
-4. [ISO 13485 et ISO 14971 — normes internationales (non indexées)](#4-iso-13485-et-iso-14971--normes-internationales-non-indexées)
+4. [ISO 13485 et ISO 14971 - normes internationales (non indexées)](#4-iso-13485-et-iso-14971--normes-internationales-non-indexées)
 5. [Cybersécurité et logiciel médical](#5-cybersécurité-et-logiciel-médical)
-6. [Articulations entre les normes — tableau croisé](#6-articulations-entre-les-normes--tableau-croisé)
+6. [Articulations entre les normes - tableau croisé](#6-articulations-entre-les-normes--tableau-croisé)
 7. [Documents publics indexés dans cette application](#7-documents-publics-indexés-dans-cette-application)
 
 ---
 
-## 1. Paysage réglementaire — tableau comparatif
+## 1. Paysage réglementaire - tableau comparatif
 
 | Aspect | FDA (États-Unis) | EU MDR/IVDR | ISO/IEC (international) |
 |---|---|---|---|
-| **Autorité** | FDA — CDRH | Commission européenne, organismes notifiés | ISO, IEC (normes volontaires, souvent rendues obligatoires par référence) |
-| **Classification** | Classe I, II, III (basée sur le risque) | Classe I, IIa, IIb, III (MDR) ; A, B, C, D (IVDR) | N/A — les normes s'appliquent indépendamment de la classe |
+| **Autorité** | FDA - CDRH | Commission européenne, organismes notifiés | ISO, IEC (normes volontaires, souvent rendues obligatoires par référence) |
+| **Classification** | Classe I, II, III (basée sur le risque) | Classe I, IIa, IIb, III (MDR) ; A, B, C, D (IVDR) | N/A - les normes s'appliquent indépendamment de la classe |
 | **QMS** | 21 CFR 820 (QMSR, aligné sur ISO 13485 depuis fév. 2026) | Exigence explicite (annexe IX) du MDR | ISO 13485:2016 |
 | **Gestion des risques** | Intégrée dans les design controls | Exigence essentielle (annexe I du MDR) | ISO 14971:2019 |
 | **Logiciel** | Guidances FDA (SaMD, cybersécurité) | Qualification SaMD via MDCG 2019-11 | IEC 62304:2006+A1:2015 |
@@ -34,9 +34,9 @@ documents publics (FDA, EU MDR/IVDR, IMDRF, MDCG, VIM) y sont indexés.
 
 ---
 
-## 2. FDA — cadre réglementaire américain
+## 2. FDA - cadre réglementaire américain
 
-### 21 CFR 820 — quality system regulation (QMSR)
+### 21 CFR 820 - quality system regulation (QMSR)
 
 Le 21 CFR 820 définit les exigences du système qualité pour les fabricants de
 dispositifs médicaux commercialisés aux États-Unis. Depuis la mise à jour QMSR
@@ -67,7 +67,7 @@ faible-modéré sans prédicat.
 
 ## 3. EU MDR 2017/745 et IVDR 2017/746
 
-### MDR — règlement relatif aux dispositifs médicaux
+### MDR - règlement relatif aux dispositifs médicaux
 
 Le règlement (UE) 2017/745 remplace les directives 93/42/CEE et 90/385/CEE.
 Il renforce les exigences en matière de surveillance post-commercialisation,
@@ -75,7 +75,7 @@ d'évaluation clinique, de traçabilité (UDI) et de transparence (base EUDAMED)
 La classification repose sur 22 règles (annexe VIII) et l'évaluation de
 conformité passe par des organismes notifiés pour les classes supérieures à I.
 
-### IVDR — règlement relatif aux dispositifs de diagnostic in vitro
+### IVDR - règlement relatif aux dispositifs de diagnostic in vitro
 
 Le règlement (UE) 2017/746 remplace la directive 98/79/CE. Il introduit une
 classification en quatre classes (A, B, C, D) basée sur le risque, en
@@ -93,9 +93,9 @@ sont publics et indexés dans la base RAG.
 
 ---
 
-## 4. ISO 13485 et ISO 14971 — normes internationales (non indexées)
+## 4. ISO 13485 et ISO 14971 - normes internationales (non indexées)
 
-### ISO 13485:2016 — système de management de la qualité
+### ISO 13485:2016 - système de management de la qualité
 
 ISO 13485 spécifie les exigences relatives au système de management de la
 qualité pour les organismes impliqués dans le cycle de vie des dispositifs
@@ -103,7 +103,7 @@ médicaux. Elle est reconnue mondialement et sert de fondement aux exigences
 QMS de la plupart des juridictions. Le 21 CFR 820 (QMSR) s'y aligne
 désormais explicitement.
 
-### ISO 14971:2019 — gestion des risques
+### ISO 14971:2019 - gestion des risques
 
 ISO 14971 définit le processus de gestion des risques applicable aux
 dispositifs médicaux. Elle couvre l'analyse des risques, l'évaluation, la
@@ -136,7 +136,7 @@ vulnérabilités, et la conception sécurisée (security by design). Le MDR
 impose des exigences similaires via l'annexe I (exigences générales de
 sécurité et de performance) et les guidances MDCG.
 
-### IEC 62304 — cycle de vie du logiciel médical
+### IEC 62304 - cycle de vie du logiciel médical
 
 IEC 62304 définit les processus du cycle de vie du développement logiciel
 pour les dispositifs médicaux. Elle introduit trois classes de sécurité
@@ -145,7 +145,7 @@ normes ISO, cette norme IEC est payante et n'est pas indexée dans la base RAG.
 
 ---
 
-## 6. Articulations entre les normes — tableau croisé
+## 6. Articulations entre les normes - tableau croisé
 
 | Thème | FDA | EU MDR/IVDR | ISO/IEC |
 |---|---|---|---|

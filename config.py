@@ -1,4 +1,4 @@
-"""Configuration globale — RAG normes medicales."""
+"""Configuration globale - RAG normes medicales."""
 import os
 
 # --- Chemins ---

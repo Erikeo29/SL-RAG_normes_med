@@ -1,4 +1,4 @@
-# Overview of the regulatory landscape — medical devices
+# Overview of the regulatory landscape - medical devices
 
 This document provides an overview of the regulatory framework applicable to
 medical devices. It covers the main jurisdictions (United States, European
@@ -11,22 +11,22 @@ publicly available documents (FDA, EU MDR/IVDR, IMDRF, MDCG, VIM) are indexed.
 
 ## Table of contents
 
-1. [Regulatory landscape — comparative table](#1-regulatory-landscape--comparative-table)
-2. [FDA — US regulatory framework](#2-fda--us-regulatory-framework)
+1. [Regulatory landscape - comparative table](#1-regulatory-landscape--comparative-table)
+2. [FDA - US regulatory framework](#2-fda--us-regulatory-framework)
 3. [EU MDR 2017/745 and IVDR 2017/746](#3-eu-mdr-2017745-and-ivdr-2017746)
-4. [ISO 13485 and ISO 14971 — international standards (not indexed)](#4-iso-13485-and-iso-14971--international-standards-not-indexed)
+4. [ISO 13485 and ISO 14971 - international standards (not indexed)](#4-iso-13485-and-iso-14971--international-standards-not-indexed)
 5. [Cybersecurity and medical software](#5-cybersecurity-and-medical-software)
-6. [Interconnections between standards — cross-reference table](#6-interconnections-between-standards--cross-reference-table)
+6. [Interconnections between standards - cross-reference table](#6-interconnections-between-standards--cross-reference-table)
 7. [Public documents indexed in this application](#7-public-documents-indexed-in-this-application)
 
 ---
 
-## 1. Regulatory landscape — comparative table
+## 1. Regulatory landscape - comparative table
 
 | Aspect | FDA (United States) | EU MDR/IVDR | ISO/IEC (international) |
 |---|---|---|---|
-| **Authority** | FDA — CDRH | European Commission, notified bodies | ISO, IEC (voluntary standards, often made mandatory by reference) |
-| **Classification** | Class I, II, III (risk-based) | Class I, IIa, IIb, III (MDR); A, B, C, D (IVDR) | N/A — standards apply regardless of class |
+| **Authority** | FDA - CDRH | European Commission, notified bodies | ISO, IEC (voluntary standards, often made mandatory by reference) |
+| **Classification** | Class I, II, III (risk-based) | Class I, IIa, IIb, III (MDR); A, B, C, D (IVDR) | N/A - standards apply regardless of class |
 | **QMS** | 21 CFR 820 (QMSR, aligned with ISO 13485 since Feb. 2026) | Explicit requirement (Annex IX) of MDR | ISO 13485:2016 |
 | **Risk management** | Integrated in design controls | Essential requirement (MDR Annex I) | ISO 14971:2019 |
 | **Software** | FDA guidances (SaMD, cybersecurity) | SaMD qualification via MDCG 2019-11 | IEC 62304:2006+A1:2015 |
@@ -34,9 +34,9 @@ publicly available documents (FDA, EU MDR/IVDR, IMDRF, MDCG, VIM) are indexed.
 
 ---
 
-## 2. FDA — US regulatory framework
+## 2. FDA - US regulatory framework
 
-### 21 CFR 820 — quality system regulation (QMSR)
+### 21 CFR 820 - quality system regulation (QMSR)
 
 21 CFR 820 defines quality system requirements for manufacturers of medical
 devices marketed in the United States. Since the QMSR update (effective 2026),
@@ -66,7 +66,7 @@ predicate.
 
 ## 3. EU MDR 2017/745 and IVDR 2017/746
 
-### MDR — medical devices regulation
+### MDR - medical devices regulation
 
 Regulation (EU) 2017/745 replaces Directives 93/42/EEC and 90/385/EEC. It
 strengthens requirements for post-market surveillance, clinical evaluation,
@@ -74,7 +74,7 @@ traceability (UDI), and transparency (EUDAMED database). Classification is
 based on 22 rules (Annex VIII), and conformity assessment involves notified
 bodies for classes above I.
 
-### IVDR — in vitro diagnostic devices regulation
+### IVDR - in vitro diagnostic devices regulation
 
 Regulation (EU) 2017/746 replaces Directive 98/79/EC. It introduces a
 four-class system (A, B, C, D) based on risk, replacing the previous
@@ -91,16 +91,16 @@ indexed in the RAG database.
 
 ---
 
-## 4. ISO 13485 and ISO 14971 — international standards (not indexed)
+## 4. ISO 13485 and ISO 14971 - international standards (not indexed)
 
-### ISO 13485:2016 — quality management system
+### ISO 13485:2016 - quality management system
 
 ISO 13485 specifies quality management system requirements for organizations
 involved in the life cycle of medical devices. It is recognized worldwide and
 serves as the foundation for QMS requirements in most jurisdictions. The
 21 CFR 820 (QMSR) now explicitly aligns with it.
 
-### ISO 14971:2019 — risk management
+### ISO 14971:2019 - risk management
 
 ISO 14971 defines the risk management process applicable to medical devices.
 It covers risk analysis, evaluation, control, and post-production monitoring.
@@ -132,7 +132,7 @@ Materials), update and vulnerability management plans, and security by design.
 The MDR imposes similar requirements through Annex I (general safety and
 performance requirements) and MDCG guidances.
 
-### IEC 62304 — medical software life cycle
+### IEC 62304 - medical software life cycle
 
 IEC 62304 defines the life cycle processes for medical device software
 development. It introduces three safety classes (A, B, C) that determine the
@@ -141,7 +141,7 @@ requires purchase and is not indexed in the RAG database.
 
 ---
 
-## 6. Interconnections between standards — cross-reference table
+## 6. Interconnections between standards - cross-reference table
 
 | Topic | FDA | EU MDR/IVDR | ISO/IEC |
 |---|---|---|---|

@@ -1,4 +1,4 @@
-"""RAG normes medicales — Point d'entree Streamlit."""
+"""RAG normes medicales - Point d'entree Streamlit."""
 import streamlit as st
 
 from config import CSS_PATH
