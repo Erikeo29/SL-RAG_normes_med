@@ -1,5 +1,6 @@
 """RAG normes medicales - Point d'entree Streamlit."""
 import streamlit as st
+import streamlit.components.v1 as components
 
 from config import CSS_PATH
 from components.sidebar import render_sidebar
@@ -57,6 +58,14 @@ render_sidebar()
 
 # --- Routing ---
 page = st.session_state.current_page
+
+# --- Auto-scroll to top on page change ---
+if st.session_state.get("_last_page") != page:
+    st.session_state["_last_page"] = page
+    components.html(
+        '<script>window.parent.document.querySelector("section.main").scrollTo(0, 0);</script>',
+        height=0,
+    )
 
 if page == "chat":
     render_chat_page()
