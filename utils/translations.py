@@ -11,6 +11,10 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "fr": "Assistant intelligent pour l'analyse de normes médicales",
         "en": "Intelligent assistant for medical standards analysis",
     },
+    "hero_subtitle": {
+        "fr": "Assistant RAG pour la conformité dispositifs médicaux - FDA, ISO 13485, IEC 62304, EU MDR",
+        "en": "RAG assistant for medical device compliance - FDA, ISO 13485, IEC 62304, EU MDR",
+    },
     # --- Sidebar ---
     "sidebar_title": {
         "fr": "Navigation",
